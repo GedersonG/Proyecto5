@@ -1,0 +1,74 @@
+<%- include('./partials/_header'); %> 
+
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-md">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Existencias</th>
+                    <th>Cant_Min</th>
+                    <th>Magnitud</th>
+                    <th>Tipo de producto</th>
+                    <th>Cant. Max</th>
+                </thead>
+                <tbody>
+                    <% if(data) { %>
+                        <% for (var i=0; i< data.length ; ++i) {%>
+                            <tr>
+                                <td><%= (i + 1) %> </td>
+                                <td><%= data[i].nombre %> </td>
+                                <td><%= data[i].precio %> </td>
+                                <td><%= data[i].existencias %> </td>
+                                <td><%= data[i].cant_minima %> </td>
+                                <td><%= data[i].id_magnitud %> </td>
+                                <td><%= data[i].id_tipoProducto %> </td>
+                                <td><%= data[i].cant_maxima %> </td>
+                                <td>
+                                    <a href="products/delete/<%= data[i].id_producto %>" class="btn btn-danger">Eliminar</a>
+                                    <a href="products/update/<%= data[i].id_producto%>" class="btn btn-info mt-1">Editar</a>
+                                </td>
+                            </tr>
+                        <% } %>
+                    <% } %> 
+                </tbody>
+            </table>
+        </div>
+        <br>
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <form action="products/add" method="post">
+                        <div class="form-group mt-1">
+                            <input type="text" name="nombre" placeholder="Nombre" class="form-control" value="">
+                        </div>
+                        <div class="form-group mt-1">
+                            <input type="number" name="precio" placeholder="Precio" class="form-control" value="">
+                        </div>
+                        <div class="form-group">
+                            <input type="number" name="existencias" placeholder="Existencias" class="form-control" value="">
+                        </div>
+                        <div class="form-group mt-1">
+                            <input type="number" name="cant_minima" placeholder="Cant. Min" class="form-control" value="">
+                        </div>
+                        <div class="form-group mt-1">
+                            <input type="number" name="id_magnitud" placeholder="Magnitud" class="form-control" value="">
+                        </div>
+                        <div class="form-group mt-1">
+                            <input type="number" name="id_tipoProducto" placeholder="Producto ID" class="form-control" value="">
+                        </div>
+                        <div class="form-group mt-1">
+                            <input type="number" name="cant_maxima" placeholder="Cant. Max" class="form-control" value="">
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-1">
+                            Añadir nuevo Producto
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('./partials/_footer'); %> 

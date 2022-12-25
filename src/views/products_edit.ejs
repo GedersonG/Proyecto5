@@ -1,0 +1,38 @@
+<%- include('./partials/_header'); %>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/products/update/<%= data.id_producto %>" method="post">
+                        <div class="form-group mt-1">
+                            <input type="text" name="nombre" placeholder="Nombre" class="form-control" value="<%= data.nombre %>">
+                        </div>
+                        <div class="form-group mt-1">
+                            <input type="number" name="precio" placeholder="Precio" class="form-control" value="<%= data.precio %>">
+                        </div>
+                        <div class="form-group">
+                            <input type="number" name="existencias" placeholder="Existencias" class="form-control" value="<%= data.existencias %>">
+                        </div>
+                        <div class="form-group mt-1">
+                            <input type="number" name="cant_minima" placeholder="Cant. Min" class="form-control" value="<%= data.cant_minima %>">
+                        </div>
+                        <div class="form-group mt-1">
+                            <input type="number" name="id_magnitud" placeholder="Magnitud" class="form-control" value="<%= data.id_magnitud %>">
+                        </div>
+                        <div class="form-group mt-1">
+                            <input type="number" name="id_tipoProducto" placeholder="Producto ID" class="form-control" value="<%= data.id_tipoProducto %>">
+                        </div>
+                        <div class="form-group mt-1">
+                            <input type="number" name="cant_maxima" placeholder="Cant. Max" class="form-control" value="<%= data.cant_maxima %>">
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-1">
+                            Editar Producto
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

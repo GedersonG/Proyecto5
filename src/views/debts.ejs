@@ -1,0 +1,80 @@
+<%- include('./partials/_header'); %> 
+
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-md">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <th>ID</th>
+                    <th>Documento</th>
+                    <th>ID de Venta</th>
+                    <th>Nombre</th>
+                    <th>Telefono</th>
+                    <th>Direccion</th>
+                    <th>Saldo</th>
+                    <th>ID Usuario</th>
+                    <th>Fecha</th>
+                    <th>Accion</th>
+                </thead>
+                <tbody>
+                    <% if(data) { %>
+                        <% for (var i=0; i< data.length ; ++i) {%>
+                            <tr>
+                                <td><%= (i + 1) %> </td>
+                                <td><%= data[i].cedula %> </td>
+                                <td><%= data[i].id_venta %> </td>
+                                <td><%= data[i].nombre %> </td>
+                                <td><%= data[i].telefono %> </td>
+                                <td><%= data[i].direccion %> </td>
+                                <td><%= data[i].saldo %> </td>
+                                <td><%= data[i].id_Usuario %> </td>
+                                <td><%= data[i].fecha_Venta %> </td>
+                                <td>
+                                    <a href="debts/delete/<%= data[i].id_Deuda %>" class="btn btn-danger">Eliminar</a>
+                                    <a href="debts/update/<%= data[i].id_Deuda %>" class="btn btn-info mt-1">Editar</a>
+                                </td>
+                            </tr>
+                        <% } %>
+                    <% } %> 
+                </tbody>
+            </table>
+        </div>
+        <br>
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <form action="debts/add" method="post">
+                        <div class="form-group mt-1">
+                            <input type="number" name="cedula" placeholder="Documento" class="form-control" value="">
+                        </div>
+                        <div class="form-group mt-1">
+                            <input type="number" name="id_venta" placeholder="ID venta" class="form-control" value="">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="nombre" placeholder="Nombre" class="form-control" value="">
+                        </div>
+                        <div class="form-group mt-1">
+                            <input type="number" name="telefono" placeholder="Telefono" class="form-control" value="">
+                        </div>
+                        <div class="form-group mt-1">
+                            <input type="text" name="direccion" placeholder="Direccion" class="form-control" value="">
+                        </div>
+                        <div class="form-group mt-1">
+                            <input type="number" name="saldo" placeholder="Saldo" class="form-control" value="">
+                        </div>
+                        <div class="form-group mt-1">
+                            <input type="number" name="id_Usuario" placeholder="ID Usuario" class="form-control" value="">
+                        </div>
+                        <div class="form-group mt-1">
+                            <input type="datetime-local" name="fecha_Venta" class="form-control" value="">
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-1">
+                            Añadir nueva Deuda
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('./partials/_footer'); %> 
